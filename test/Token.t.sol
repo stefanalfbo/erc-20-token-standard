@@ -33,4 +33,21 @@ contract TokenTest is Test {
     function testInitialSupply() public view {
         assertEq(token.totalSupply(), deployer.INITIAL_SUPPLY());
     }
+
+    function testName() public view {
+        assertEq(token.name(), "Token");
+    }
+
+    function testSymbol() public view {
+        assertEq(token.symbol(), "TKN");
+    }
+
+    function testDecimals() public view {
+        assertEq(token.decimals(), 18);
+    }
+
+    function testBalanceOf() public view {
+        assertEq(token.balanceOf(bob), BOB_STARTING_AMOUNT);
+        assertEq(token.balanceOf(alice), 0);
+    }
 }
